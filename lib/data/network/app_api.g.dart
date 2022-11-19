@@ -8,7 +8,7 @@ part of 'app_api.dart';
 
 class _AppServiceClient implements AppServiceClient {
   _AppServiceClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://minafarid123.mocklab.io';
+    baseUrl ??= 'http://127.0.0.1:8000';
   }
 
   final Dio _dio;

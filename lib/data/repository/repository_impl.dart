@@ -8,6 +8,7 @@ import 'package:complete_advanced_flutter/domain/model/model.dart';
 import 'package:complete_advanced_flutter/domain/repository/repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:complete_advanced_flutter/data/mapper/mapper.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class RepositoryImpl extends Repository {
   RemoteDataSource _remoteDataSource;
@@ -125,7 +126,9 @@ class RepositoryImpl extends Repository {
             // return biz logic error
             // return left
             return Left(Failure(response.status ?? ApiInternalStatus.FAILURE,
-                response.message ?? ResponseMessage.DEFAULT));
+                response.message ?? ResponseMessage.DEFAULT.tr()));
+            // return Left(Failure(response.status ?? ApiInternalStatus.FAILURE,
+            //     response.message ?? ResponseMessage.DEFAULT));
           }
         } catch (error) {
           return (Left(ErrorHandler.handle(error).failure));
